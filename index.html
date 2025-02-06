@@ -16,7 +16,7 @@
 <body>
 <img
   id="mapaPrincipal"
-  src="img/mapaazul.png"
+  src="img/mapaprincipal.png"
   alt="Mapa do Brasil"
   usemap="#mapaBrasil"
 />
@@ -24,22 +24,22 @@
  
    <!--ÁREA DE CADA ESTADO NA IMAGEM repita para cada estado -->
   <area shape="poly"
-    coords="87,2196,1247,2657,1953,2292,2617,2424,2827,1729,2922,1394,2079,1233,936,742,775,1688,308,1807,171,2005,2031,1179,1780,658"
+    coords="278,409,308,319,217,261,125,270,122,347,82,360,69,385,119,409,163,424,212,396"
     alt="amazonas"
     onclick="trocaMapa('Amazonas')"
   />
   <area shape="poly"
-    coords="6255,2525,6177,2585,6488,2783,6679,2525,6392,2591"
+    coords="581,418,602,410,585,433,560,418,566,414"
     alt="alagoas"
     onclick="trocaMapa('Alagoas')"
   />
   <area shape="poly"
-    coords="51,2190,182,2591,906,2902,1253,2687"
+    coords="68,386,163,426,137,446,79,416"
     alt="acre"
     onclick="trocaMapa('Acre')"
   />
   <area shape="poly"
-    coords="3329,545,3808,1197,4191,784,3909,221,3688,539"
+    coords="377,226,398,269,369,304,330,256,363,255"
     alt="amapa"
     onclick="trocaMapa('Amapa')"
   />
@@ -49,24 +49,54 @@
     onclick="trocaMapa('Bahia')"
   />
   <area shape="poly"
-    coords="5926,1472,6302,1777,6033,2310,5776,2208,5644,1682,5620,1580,5686,1472"
+    coords="542,328,567,351,550,395,526,388,517,328"
     alt="ceara"
     onclick="trocaMapa('Ceara')"
   />
   <area shape="poly"
-    coords="4460,3662,4591,3668,4591,3758,4448,3758"
+    coords="421,504,433,505,433,511,422,511"
     alt="df"
     onclick="trocaMapa('DistritoFederal')"
   />
   <area shape="poly"
-    coords="5734,4117,5549,4638,5698,4710,5902,4380,5908,4177"
+    coords="523,538,544,547,525,591,509,580,521,561"
     alt="espiritosanto"
     onclick="trocaMapa('EspiritoSanto')"
   />
   <area shape="poly"
-    coords=""
+    coords="426,546,400,549,385,563,362,547,351,533,379,499,392,466,450,468,452,487"
     alt="goias"
     onclick="trocaMapa('Goias')"
+  />
+  <area shape="poly"
+    coords="459,397,451,430,438,396,420,359,442,334,451,304,507,326,491,378"
+    alt="maranhao"
+    onclick="trocaMapa('Maranhao')"
+  />
+  <area shape="poly"
+    coords="346,535,385,567,359,600,335,635,315,601,288,599,288,543,308,530"
+    alt="matogrossodosul"
+    onclick="trocaMapa('MatoGrossoDoSul')"
+  />
+  <area shape="poly"
+    coords="390,422,381,493,353,537,294,536,260,514,262,454,235,409"
+    alt="matogrosso"
+    onclick="trocaMapa('MatoGrosso')"
+  />
+  <area shape="poly"
+    coords="390,422,381,493,353,537,294,536,260,514,262,454,235,409"
+    alt="matogrosso"
+    onclick="trocaMapa('MatoGrosso')"
+  />
+  <area shape="poly"
+    coords="450,610,431,571,383,565,394,549,430,548,446,498,477,490,534,512,526,541,515,568,500,595"
+    alt="minas"
+    onclick="trocaMapa('MinasGerais')"
+  />
+  <area shape="poly"
+    coords="365,304,416,291,452,302,391,424,293,411,283,382,308,321,276,295,280,268,319,259,347,268"
+    alt="para"
+    onclick="trocaMapa('Para')"
   />
   
   
@@ -82,7 +112,7 @@
     const img = document.getElementById('mapaPrincipal');
     switch (estado) {
       case 'Amazonas':
-        img.src = 'img/amazonia.png';
+        img.src = 'img/amazonas.png';
         break;
       case 'Alagoas':
         img.src = 'img/alagoas.png';
@@ -100,7 +130,7 @@
         img.src = 'img/ceara.png';
         break;
       case 'DistritoFederal':
-        img.src = 'img/df.png';
+        img.src = 'img/distritofederal.png';
         break;
       case 'EspiritoSanto':
         img.src = 'img/espiritosanto.png';
@@ -108,7 +138,21 @@
       case 'Goias':
         img.src = 'img/goias.png';
         break;
-      
+      case 'Maranhao':
+        img.src = 'img/maranhao.png';
+        break;
+      case 'MatoGrossoDoSul':
+        img.src = 'img/matogrossodosul.png';
+        break;
+      case 'MatoGrosso':
+        img.src = 'img/matogrosso.png';
+        break;
+      case 'MinasGerais':
+        img.src = 'img/minasgerais.png';
+        break;
+      case 'Para':
+        img.src = 'img/para.png';
+        break;
       
       default:
         img.src = 'img/mapaAzul.png';
