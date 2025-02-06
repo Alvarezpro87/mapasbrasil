@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Responsivo</title>
+  <style>
+    /* Permite a imagem encolher/alargar conforme o tamanho de tela */
+    #mapaPrincipal {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+<img
+  id="mapaPrincipal"
+  src="img/mapaazul.png"
+  alt="Mapa do Brasil"
+  usemap="#mapaBrasil"
+/>
+<map name="mapaBrasil">
+ 
+   <!--ÁREA DE CADA ESTADO NA IMAGEM repita para cada estado -->
+  <area shape="poly"
+    coords="87,2196,1247,2657,1953,2292,2617,2424,2827,1729,2922,1394,2079,1233,936,742,775,1688,308,1807,171,2005,2031,1179,1780,658"
+    alt="amazonas"
+    onclick="trocaMapa('Amazonas')"
+  />
+  <area shape="poly"
+    coords="6255,2525,6177,2585,6488,2783,6679,2525,6392,2591"
+    alt="alagoas"
+    onclick="trocaMapa('Alagoas')"
+  />
+  <area shape="poly"
+    coords="51,2190,182,2591,906,2902,1253,2687"
+    alt="acre"
+    onclick="trocaMapa('Acre')"
+  />
+  <area shape="poly"
+    coords="3329,545,3808,1197,4191,784,3909,221,3688,539"
+    alt="amapa"
+    onclick="trocaMapa('Amapa')"
+  />
+  <area shape="poly"
+    coords="5914,4141,6117,2549,4807,2801,4819,3597,5549,3561"
+    alt="bahia"
+    onclick="trocaMapa('Bahia')"
+  />
+  <area shape="poly"
+    coords="5926,1472,6302,1777,6033,2310,5776,2208,5644,1682,5620,1580,5686,1472"
+    alt="ceara"
+    onclick="trocaMapa('Ceara')"
+  />
+  <area shape="poly"
+    coords="4460,3662,4591,3668,4591,3758,4448,3758"
+    alt="df"
+    onclick="trocaMapa('DistritoFederal')"
+  />
+  <area shape="poly"
+    coords="5734,4117,5549,4638,5698,4710,5902,4380,5908,4177"
+    alt="espiritosanto"
+    onclick="trocaMapa('EspiritoSanto')"
+  />
+  <area shape="poly"
+    coords=""
+    alt="goias"
+    onclick="trocaMapa('Goias')"
+  />
+  
+  
+</map>
+<script src="https://unpkg.com/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
+<script>
+  // FUNCAO PARA AJUSTAR E REDIMENSIONAR A IMAGEM
+  window.addEventListener('DOMContentLoaded', function() {
+    imageMapResize();
+  });
+
+  function trocaMapa(estado) {
+    const img = document.getElementById('mapaPrincipal');
+    switch (estado) {
+      case 'Amazonas':
+        img.src = 'img/amazonia.png';
+        break;
+      case 'Alagoas':
+        img.src = 'img/alagoas.png';
+        break;
+      case 'Acre':
+        img.src = 'img/acre.png';
+        break;
+      case 'Amapa':
+        img.src = 'img/amapa.png';
+        break;
+      case 'Bahia':
+        img.src = 'img/bahia.png';
+        break;
+      case 'Ceara':
+        img.src = 'img/ceara.png';
+        break;
+      case 'DistritoFederal':
+        img.src = 'img/df.png';
+        break;
+      case 'EspiritoSanto':
+        img.src = 'img/espiritosanto.png';
+        break;
+      case 'Goias':
+        img.src = 'img/goias.png';
+        break;
+      
+      
+      default:
+        img.src = 'img/mapaAzul.png';
+    }
+  }
+</script>
+
+</body>
+</html>
