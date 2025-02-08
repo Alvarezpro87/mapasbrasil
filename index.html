@@ -4,12 +4,21 @@
   <meta charset="UTF-8">
   <title>Mapa Responsivo</title>
   <style>
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #25346e;
+      width: 100%;
+      height: 100%;
+    }
     /* Permite a imagem encolher/alargar conforme o tamanho de tela */
     #mapaPrincipal {
       max-width: 100%;
       height: auto;
       display: block;
       margin: 0 auto;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -173,6 +182,17 @@
   // FUNCAO PARA AJUSTAR E REDIMENSIONAR A IMAGEM
   window.addEventListener('DOMContentLoaded', function() {
     imageMapResize();
+  });
+  let cursorOculto = false;
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'm' || event.key === 'M') {
+      cursorOculto = !cursorOculto;
+      if (cursorOculto) {
+        document.body.style.cursor = 'none';
+      } else {
+        document.body.style.cursor = 'default';
+      }
+    }
   });
 
   function trocaMapa(estado) {
