@@ -4,34 +4,38 @@
   <meta charset="UTF-8">
   <title>Mapa Responsivo</title>
   <style>
-
+    /* Remove margem e padding, fundo preto */
     html, body {
       margin: 0;
       padding: 0;
-      background:transparent;
-      width: 100%;
-      height: 100%;
+      background: transparent;      
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    /* Permite a imagem encolher/alargar conforme o tamanho de tela */
+
+    /* Mantém a imagem responsiva, sem quebrar coords */
     #mapaPrincipal {
-      max-width: 100%;
-      height: auto;
+      width: 672px;
+      height: 840px;
       display: block;
-      margin: 0 auto;
-      object-fit: cover;
     }
   </style>
 </head>
 <body>
+
 <img
   id="mapaPrincipal"
   src="img/mapaprincipal.png"
   alt="Mapa do Brasil"
   usemap="#mapaBrasil"
 />
+
 <map name="mapaBrasil">
  
-   <!--ÁREA DE CADA ESTADO NA IMAGEM r -->
+   <!--ÁREA DE CADA ESTADO NA IMAGEM (coords corretos que você gerou) -->
   <area shape="poly"
     coords="278,409,308,319,217,261,125,270,122,347,82,360,69,385,119,409,163,424,212,396"
     alt="amazonas"
@@ -97,11 +101,7 @@
     alt="matogrosso"
     onclick="trocaMapa('MatoGrosso')"
   />
-  <area shape="poly"
-    coords="390,422,381,493,353,537,294,536,260,514,262,454,235,409"
-    alt="matogrosso"
-    onclick="trocaMapa('MatoGrosso')"
-  />
+  <!-- (Se não precisar repetir, remova se estiver duplicado) -->
   <area shape="circle"
     coords="502,611,28"
     alt="riodejaneiro"
@@ -147,7 +147,6 @@
     alt="piaui"
     onclick="trocaMapa('Piaui')"
   />
-  
   <area shape="poly"
     coords="571,354,599,359,605,378,580,384,558,373"
     alt="riograndedonorte"
@@ -167,34 +166,24 @@
     coords="228,229,257,217,272,283,231,302,219,264,195,231"
     alt="roraima"
     onclick="trocaMapa('Roraima')"
-  />  
-  
+  />
   <area shape="poly"
     coords="427,474,448,466,447,430,439,404,428,363,423,360,412,385,389,432,387,463"
     alt="tocantins"
     onclick="trocaMapa('Tocantins')"
   />
   
-  
 </map>
+
+<!-- Script para redimensionar áreas conforme a imagem muda de tamanho -->
 <script src="https://unpkg.com/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
 <script>
   // FUNCAO PARA AJUSTAR E REDIMENSIONAR A IMAGEM
   window.addEventListener('DOMContentLoaded', function() {
     imageMapResize();
   });
-  let cursorOculto = false;
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'm' || event.key === 'M') {
-      cursorOculto = !cursorOculto;
-      if (cursorOculto) {
-        document.body.style.cursor = 'none';
-      } else {
-        document.body.style.cursor = 'default';
-      }
-    }
-  });
-
+  
+  // FUNÇÃO PARA TROCAR A IMAGEM DO MAPA
   function trocaMapa(estado) {
     const img = document.getElementById('mapaPrincipal');
     switch (estado) {
@@ -252,7 +241,7 @@
       case 'Piaui':
         img.src = 'img/piaui.png';
         break; 
-        case 'RioDeJaneiro':
+      case 'RioDeJaneiro':
         img.src = 'img/riodejaneiro.png';
         break;  
       case 'RioGrandeDoNorte':
@@ -278,11 +267,21 @@
         break; 
       case 'Tocantins':
         img.src = 'img/tocantins.png';
-        break;     
+        break;
       default:
+        // Se clicar fora, volta para o mapa principal (azul)
         img.src = 'img/mapaAzul.png';
     }
   }
+
+  // OPCIONAL: Ocultar / mostrar cursor ao pressionar "M"
+  let cursorOculto = false;
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'm' || event.key === 'M') {
+      cursorOculto = !cursorOculto;
+      document.body.style.cursor = cursorOculto ? 'none' : 'default';
+    }
+  });
 </script>
 
 </body>
